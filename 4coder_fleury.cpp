@@ -549,6 +549,12 @@ CUSTOM_DOC("Fleury startup event")
         Buffer_ID left_id = buffer_identifier_to_id(app, left);
         Buffer_ID right_id = buffer_identifier_to_id(app, right);
         
+        // NOTE(Coedo): When opening file, set left ids to it
+        if(file_names.count > 0) {
+            left = buffer_identifier(file_names.vals[0]); 
+            left_id = buffer_identifier_to_id(app, left);
+		}
+		
         // NOTE(rjf): Left Panel
         View_ID view = get_active_view(app, Access_Always);
         new_view_settings(app, view);
